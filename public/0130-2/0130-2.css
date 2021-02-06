@@ -1,0 +1,69 @@
+header {
+    width: 100%;
+    padding: 70px 60px 140px 60px;
+    border-bottom: 1px solid rgb(146, 139, 139);;
+}
+
+.header-wrapper {
+    width: 90%;
+}
+
+.companyname-1 {
+    display: block;
+}
+
+.companyname-1 h1 {
+    letter-spacing: 15px;
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+nav {
+    color: rgb(184, 178, 168);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.companyname-2 {
+    margin-right: 575px;
+}
+
+.companyname-2 p {
+    letter-spacing: 3px;
+}
+
+.companyname-2 p:hover {
+    color: rgb(105, 104, 103);
+}
+
+.companyname-2 a {
+    text-decoration: none;
+    color : rgb(184, 178, 168);
+    line-height: 200%;
+}
+
+.header-menu {
+    
+}
+
+.header-menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.header-menu li {
+    margin-right: 50px;
+}
+
+.header-menu a {
+    text-decoration: none;
+    color: rgb(184, 178, 168);
+    letter-spacing: 2px;
+}
+
+.header-menu a:hover {
+    color: rgb(105, 104, 103);
+}
