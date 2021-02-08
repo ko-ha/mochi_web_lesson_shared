@@ -1,118 +1,75 @@
-/* = = = = = = = = = = = = = = = = data types */
-// number 数値
-const number = 1;
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 90, 10, 20, 29, 42, 23, 23]
 
-// string 文字列
-const string = "hello!";
-const single = '"this" is';
-const doub = "'this' is";
-const escaping = '\'ashiduhafsudhfiauhds';
-const back = `${string} world!`;
+// min & max = = = = = = = = = = = = = = 
+const min = findMinimum(nums)
+const max = findMaxim(nums)
 
-// boolean 真偽値
-const sin = true;
-const gi = false;
-
-// array 配列
-const array = [1, 2, 3];
-const arraystring = ['hello', 'byebye'];
-
-// object オブジェクト
-const person = {
-    firstName: 'Mochida',
-    lastName: 'koharu',
-    age: 19,
-    grade: {
-      japanese: 90,
-      english: 90,
-      math: 90
+function findMinimum(arr1) {
+  let n = arr1[0]
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] < n) {
+      n = arr1[i];
     }
+  }
+  return n;
 }
 
-// null ヌル
-const nl = null
+function findMaxim(x) {
+  let m = 0
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] > m) {
+      m = x[i]
+    }
+  }
+  return m
+}
 
-/* = = = = = = = = = = = = = = = = looping */
-// while
-let a = 1;
-while (a <= 100) {
-    a++;
-} // increment++ | decrement--
+// console.log(...nums, nums)
+// console.log(Math.max(...nums), Math.min(...nums))
 
-// while (true) {
-//   console.log('to the infinity and beyond');
-//   break
+// average = = = = = = = = = = = = = = 
+function average(x) {
+  const sum = x.reduce((a, b) => a + b, 0)
+  const len = x.length
+  return Math.round(sum / len) // round === 四捨五入 Math.ceil() Math.floor()
+}
+
+function averageChanto(x) {
+  let total = 0
+
+  for (let i = 0; i < x.length; i++) {
+    total += x[i]   // total = total + x[i]
+  }
+
+  return total / x.length
+}
+
+console.log(average(nums))
+console.log(averageChanto(nums))
+
+// duplicate 重複
+function findDuplicates(x) {
+  let obj = {}
+
+  for (el of x) {
+    obj[el] = obj[el] ? ++obj[el] : obj[el] = 1
+  }
+
+  return obj
+}
+
+console.log(findDuplicates(nums))
+console.log(nums.reduce((a, b) => {
+  return {
+    ...a,
+    [b]: (a[b] || 0) + 1
+  }
+}), {})
+
+// const obj = {
+//   name: 'kento',
+//   age: 0
 // }
+// const { name, age } = obj
+// console.log(name, age)
 
-// for loop
-for (let b = 1; b < 100; b++) {
-    // console.log(b)
-}
-
-for (let i = 0; i < array.length; i++) {
-  // console.log(array[i])
-}
-
-// for ... of → array
-for (a of arraystring) {
-  // console.log(a)
-}
-
-// for ... in → object
-for (b in person) {
-  // console.log(b + ' is ' + person[b])
-}
-// console.log(person.firstName, person['lastName']) object children yobidashi
-
-/* = = = = = = = = = = = = = = = = function */
-const c = () => {
-    console.log('hello');
-}
-
-function cc() {
-    console.log('hello');
-}
-
-// () => {} anonymous function
-
-/* = = = = = = = = = = = = = = = = callback hell → promise */
-function pro () {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      print()
-      resolve()
-    }, 2000) // 1000ms = 1s
-  })
-}
-
-function print () {
-  console.log('lkent')
-}
-
-/* = = = = = = = = = = = = = = = = asynchronous function */
-async function kento () {
-  await pro()
-  console.log('ima asynchronous function')
-}
-
-kento()
-
-
-/* = = = = = = = = = = = = = = = = ec6 map, reduce, filter */
-const numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-const tmp = numArr.map((numArr2) => {
-    return numArr2 * 2;
-});
-const tm = numArr.map(nu => nu * 2)
-console.log(tmp, tm)
-
-const rm = numArr.reduce((accumulator, current) => {
-  return accumulator + current
-}, 0)
-
-const rmCool = numArr.reduce((a, b) => a + b, 0)
-
-console.log(rm, rmCool / numArr.length)
-
-const filtered = numArr.filter(fil => fil > 5);
-console.log(filtered)
