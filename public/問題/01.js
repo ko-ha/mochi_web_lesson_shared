@@ -22,3 +22,23 @@ console.log(arr1.filter(x => arr2.includes(x))) //　shorthand書き方
 
 console.log(compare(arr1, arr2))
 
+// こはる(思いついたことをコメントアウトに書きながら進めてみた！とりあえずそのままにしたけど邪魔だったら言ってください！
+// ２つの配列を比較しないといけない、(比較の仕方は検索しないとわからない)
+// 2つを連結して1つの配列を作り、そのなかで要素の重複を調べればいいと思ったけど元の同じ配列内で重複していても区別できないからだめね
+//.includes()の対象にarr1を指定して、含まれているか調べる特定の要素としてarr2の要素を指定すればいけるかも
+// let b = arr2[i];
+// let i = 0; i < arr2.length; i++  //繰り返す？無駄な気がする、いや無駄ではなさそう
+// let a = arr1.includes(arr2[i]);  
+// .includes()はbooleanでかえってきちゃうから、その時のiの値がわからないと値を取り出せない
+// 含まれる(true)ならarr2[i]を表示させる、ここまでを一連の繰り返し作業とするのか！
+function commonValues (arry) {
+    for (let i = 0; i < arr2.length; i++) {
+        let b = arr2[i];
+        let a = arry.includes(b);
+        if (a === true) {
+            console.log(b);
+        }
+    } 
+}
+commonValues(arr1);
+//２が2回でてきてしまう…
